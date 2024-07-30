@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkul <tkul@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tugcekul <tugcekul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 22:50:26 by tkul              #+#    #+#             */
-/*   Updated: 2024/07/19 23:36:39 by tkul             ###   ########.fr       */
+/*   Updated: 2024/07/31 00:08:35 by tugcekul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	destroy_all(t_data *data)
 		free(data->forks);
 	if (data->philo)
 		free(data->philo);
-	pthread_mutex_destroy(data->death_mutex);
+	if (data->death_mutex)
+		pthread_mutex_destroy(data->death_mutex);
 	if (data->death_mutex)
 		free(data->death_mutex);
 	if (data)
